@@ -1,0 +1,443 @@
+@import "tailwindcss";
+@import "./tw-animate.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAILOR.HK — TECHNICAL EDITORIAL DESIGN SYSTEM
+   Positioning: Research-driven, timeless, accessible luxury tailoring
+   Audience: Entry-level to senior professionals (lawyers, bankers, consultants)
+   Aesthetic: Vitaei-inspired scientific index meets luxury menswear atelier
+   Fonts: Barlow Condensed (display/headings) + Barlow (body) + JetBrains Mono (data labels)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  /* Colour tokens */
+  --c-ink:       #111111;
+  --c-ink-soft:  #444444;
+  --c-ink-muted: #888888;
+  --c-rule:      #e2e2e2;
+  --c-rule-soft: #f0f0f0;
+  --c-surface:   #fafafa;
+  --c-white:     #ffffff;
+  --c-accent:    #1a1a1a;
+
+  /* Semantic aliases */
+  --radius: 0px;
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #111111;
+  --primary-foreground: #ffffff;
+  --secondary: #fafafa;
+  --secondary-foreground: #111111;
+  --muted: #f5f5f5;
+  --muted-foreground: #888888;
+  --accent: #f5f5f5;
+  --accent-foreground: #111111;
+  --destructive: oklch(0.55 0.22 27);
+  --border: #e2e2e2;
+  --input: #e2e2e2;
+  --ring: #111111;
+
+  /* Font stacks */
+  --font-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --font-body:    "Barlow", Arial, sans-serif;
+  --font-mono:    "JetBrains Mono", "Courier New", monospace;
+}
+
+@layer base {
+  * { box-sizing: border-box; @apply border-border; }
+  html { overflow-x: hidden; }
+  body {
+    background: var(--c-white);
+    color: var(--c-ink);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+  button:not(:disabled), a[href] { cursor: pointer; }
+  ::selection { background: var(--c-ink); color: var(--c-white); }
+}
+
+@layer components {
+
+  /* ── Layout ─────────────────────────────────────────────────────────── */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 640px)  { .container { padding-left: 32px; padding-right: 32px; } }
+  @media (min-width: 1024px) { .container { padding-left: 56px; padding-right: 56px; } }
+  @media (min-width: 1280px) { .container { max-width: 1320px; padding-left: 72px; padding-right: 72px; } }
+  .flex { min-height: 0; min-width: 0; }
+
+  /* ── Status bar (top of page — Vitaei-style) ─────────────────────────── */
+  .status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--c-rule);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--c-ink-muted);
+    overflow: hidden;
+  }
+  .status-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #22c55e;
+    margin-right: 5px;
+    animation: pulse-dot 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+
+  /* ── Section numbering (Vitaei § style) ─────────────────────────────── */
+  .section-index {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-muted);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* ── Typography ──────────────────────────────────────────────────────── */
+  .t-display {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5.5vw, 64px);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    color: var(--c-ink);
+  }
+  .t-hero-heading {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 4vw, 48px);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: var(--c-ink);
+  }
+  .t-section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.4vw, 28px);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--c-ink);
+  }
+  .t-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--c-ink);
+    line-height: 1.4;
+  }
+  .t-label-muted {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--c-ink-muted);
+    line-height: 1.4;
+  }
+  .t-body {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--c-ink-soft);
+  }
+  .t-body-sm {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--c-ink-muted);
+  }
+  .t-product-title {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-ink);
+    text-align: center;
+  }
+  .t-mono {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--c-ink-muted);
+  }
+
+  /* ── Data annotation tags (Vitaei tier-badge style) ─────────────────── */
+  .data-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 7px;
+    border: 1px solid var(--c-rule);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: var(--c-ink-muted);
+    background: var(--c-surface);
+    white-space: nowrap;
+  }
+  .data-tag-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 7px;
+    border: 1px solid var(--c-ink);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: var(--c-ink);
+    background: transparent;
+    white-space: nowrap;
+  }
+
+  /* ── Buttons ─────────────────────────────────────────────────────────── */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    border: 1px solid var(--c-ink);
+    background: transparent;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-ink);
+    transition: background 0.18s, color 0.18s;
+    white-space: nowrap;
+  }
+  .btn-outline:hover { background: var(--c-ink); color: var(--c-white); }
+
+  .btn-filled {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    border: 1px solid var(--c-ink);
+    background: var(--c-ink);
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-white);
+    transition: background 0.18s;
+    white-space: nowrap;
+  }
+  .btn-filled:hover { background: #333; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 28px;
+    border: 1px solid #b8a87a;
+    background: #b8a87a;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    transition: background 0.18s, border-color 0.18s;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: #a8986a; border-color: #a8986a; }
+
+  .btn-filled-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    border: 1px solid var(--c-white);
+    background: var(--c-white);
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-ink);
+    transition: background 0.18s, color 0.18s;
+    white-space: nowrap;
+  }
+  .btn-filled-white:hover { background: #e8e4df; border-color: #e8e4df; }
+
+  .btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: transparent;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-white);
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    white-space: nowrap;
+  }
+  .btn-outline-white:hover { background: var(--c-white); color: var(--c-ink); border-color: var(--c-white); }
+
+  .btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-muted);
+    transition: color 0.15s;
+    white-space: nowrap;
+  }
+  .btn-text:hover { color: var(--c-ink); }
+
+  /* ── Dividers ────────────────────────────────────────────────────────── */
+  .t-divider { border: none; border-top: 1px solid var(--c-rule); }
+  .t-divider-bold { border: none; border-top: 2px solid var(--c-ink); }
+
+  /* ── Cards ───────────────────────────────────────────────────────────── */
+  .product-card { cursor: pointer; }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    transition: opacity 0.22s;
+  }
+  .product-card:hover img { opacity: 0.8; }
+
+  .guide-card { cursor: pointer; }
+  .guide-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: opacity 0.22s;
+  }
+  .guide-card:hover img { opacity: 0.8; }
+
+  /* ── Spec table (fabric data) ────────────────────────────────────────── */
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--c-ink-soft);
+  }
+  .spec-table th {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--c-ink);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-ink);
+    font-weight: 600;
+  }
+  .spec-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--c-rule);
+    vertical-align: top;
+  }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .spec-table tr:hover td { background: var(--c-surface); }
+
+  /* ── Logo Marquee ────────────────────────────────────────────────────── */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 50s linear infinite;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  @keyframes marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── Fade-in on scroll ───────────────────────────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+  }
+
+  /* ── Scrollbar ───────────────────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 3px; height: 3px; }
+  ::-webkit-scrollbar-track { background: #f5f5f5; }
+  ::-webkit-scrollbar-thumb { background: #cccccc; }
+
+  /* ── Form placeholders ──────────────────────────────────────────────── */
+  input::placeholder,
+  textarea::placeholder {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #bbb;
+  }
+}
