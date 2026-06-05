@@ -547,8 +547,15 @@ export default function OrtegaProfile() {
   const [formData, setFormData] = useState({ name: "", email: "", company: "", country: "", interest: "", collection: "", orderType: "", qty: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const t = T[lang];
 
@@ -695,7 +702,7 @@ export default function OrtegaProfile() {
               <div style={{ fontFamily: F.display, fontSize: "26px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" as const, color: C.text }}>{f.name}</div>
             </div>
             {/* Row body: specs left, description right */}
-            <div className="ortega-fabric-inner" style={{ display: "grid", gap: "48px", alignItems: "start" }}>
+            <div className="ortega-fabric-inner" style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "240px 1fr", gap: isMobile ? "12px" : "48px", alignItems: "start" }}>
               <div>
                 <div style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.12em", color: "rgba(0,0,0,0.45)", textTransform: "uppercase" as const, lineHeight: 2.0, marginBottom: "8px" }}>{f.spec}</div>
                 <div style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.10em", color: "rgba(0,0,0,0.3)", textTransform: "uppercase" as const, lineHeight: 2.0 }}>{f.fibre}</div>
