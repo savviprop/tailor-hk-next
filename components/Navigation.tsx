@@ -192,7 +192,7 @@ const NAV_ITEMS: NavItem[] = [
         heading: "REFERENCE",
         links: [
           { label: "All Guides", href: "/tailor-guides", note: "25+ EDITORIAL GUIDES", thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663456325909/giuPnOgOQMqYhiOV.webp" },
-          { label: "Production Index", href: "/production-index", note: "RESEARCH & DATA", thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663456325909/cFAyiwvtfArxrpOB.webp" },
+          { label: "Production Index", href: "/atelier-direct", note: "RESEARCH & DATA", thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663456325909/cFAyiwvtfArxrpOB.webp" },
           { label: "World's Best Tailoring", href: "/worlds-best-tailoring", note: "50+ HOUSES", thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663456325909/INJQJnMGaXUHzrAO.jpeg" },
           { label: "Compare Houses", href: "/compare", note: "SIDE-BY-SIDE ANALYSIS", thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663456325909/OXMIPsxwTZzHVBjB.webp" },
           { label: "Fabric Compendium", href: "/loro-piana-anthology", note: "MILLS & COLLECTIONS", thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663456325909/prqGrMlrEOEEDwqq.jpeg" },

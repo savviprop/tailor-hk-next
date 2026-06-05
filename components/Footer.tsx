@@ -64,7 +64,7 @@ export default function Footer() {
             <div style={{ marginTop: "24px" }}>
               <div style={{ fontFamily: F.mono, fontSize: "7px", letterSpacing: "0.12em", color: "#555", marginBottom: "8px", textTransform: "uppercase" }}>Partner</div>
               <a href="https://MrPorter.prf.hn/click/camref:1110luYp7/creativeref:1100l163239" rel="sponsored" target="_blank">
-                <img src="https://MrPorter-creative.prf.hn/source/camref:1110luYp7/creativeref:1100l163239" width="140" height="140" border="0" alt="Mr Porter" style={{ display: "block", opacity: 0.85 }} />
+                <img src="https://MrPorter-creative.prf.hn/source/camref:1110luYp7/creativeref:1100l163239" width="140" height="140" alt="Mr Porter" style={{ display: "block", opacity: 0.85, border: 0 }} />
               </a>
             </div>
           </div>
