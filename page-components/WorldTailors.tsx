@@ -280,7 +280,7 @@ const TAILORS = [
     founded: 1952,
     tier: "Bespoke",
     services: ["Bespoke", "MTM"],
-    scores: { houseStyle: 1, fabrication: 3, handwork: 4, customisation: 4 },
+    scores: { houseStyle: 2, fabrication: 3, handwork: 4, customisation: 4 },
     priceRange: "HKD 12,000 – HKD 35,000+",
     silhouette: "Classic Hong Kong — structured, precise",
     construction: "Full canvas, hand-padded lapels, traditional HK construction",
@@ -297,6 +297,7 @@ const TAILORS = [
     city: "Hong Kong",
     country: "Hong Kong",
     tradition: "British",
+    regions: ["British", "Hong Kong"],
     founded: 2015,
     tier: "Brand",
     services: ["Bespoke", "MTM", "RTW"],
@@ -791,7 +792,7 @@ const TAILORS = [
     founded: 1885,
     tier: "Bespoke",
     services: ["Bespoke", "RTW"],
-    scores: { houseStyle: 3, fabrication: 3, handwork: 3, customisation: 4 },
+    scores: { houseStyle: 2, fabrication: 3, handwork: 3, customisation: 4 },
     specialty: "shirt",
     priceRange: "£350 – £1,200+ (shirts)",
     silhouette: "Jermyn Street — precise, formal, impeccably finished",
@@ -892,7 +893,7 @@ const TAILORS = [
     founded: 1953,
     tier: "Bespoke",
     services: ["Bespoke", "RTW"],
-    scores: { houseStyle: 3, fabrication: 3, handwork: 3, customisation: 4 },
+    scores: { houseStyle: 2, fabrication: 3, handwork: 3, customisation: 4 },
     specialty: "shirt",
     priceRange: "HKD 3,500 – HKD 12,000+ (shirts)",
     silhouette: "Hong Kong — precise, formal, impeccably finished",
@@ -1088,7 +1089,7 @@ export default function WorldTailors() {
   const [scoreLegendOpen, setScoreLegendOpen] = useState<string | null>(null);
   const filtered = useMemo(() => {
     const list = TAILORS.filter((t) => {
-      const matchTradition = activeTradition === "All" || t.tradition === activeTradition;
+      const matchTradition = activeTradition === "All" || t.tradition === activeTradition || ((t as any).regions || []).includes(activeTradition);
       const matchTier = activeTier === "All" || t.tier === activeTier;
       const matchService = activeService === "All" || ((t as any).services || []).includes(activeService);
       const q = search.toLowerCase();
@@ -1337,6 +1338,11 @@ export default function WorldTailors() {
                         {(tailor as any).specialty === "shirt" && (
                           <span style={{ fontFamily: F.mono, fontSize: "7px", letterSpacing: "0.08em", padding: "2px 6px", backgroundColor: "#e8f0e8", color: "#3a6b3a", whiteSpace: "nowrap", border: "1px solid #c8dcc8" }}>
                             SHIRT HOUSE
+                          </span>
+                        )}
+                        {(tailor as any).regions && activeTradition === "Hong Kong" && (tailor as any).tradition !== "Hong Kong" && (
+                          <span style={{ fontFamily: F.mono, fontSize: "7px", letterSpacing: "0.08em", padding: "2px 6px", backgroundColor: "#f0f0e8", color: "#6b6b3a", whiteSpace: "nowrap", border: "1px solid #dcdcc8" }}>
+                            HK OUTPOST
                           </span>
                         )}
                         <div style={{ display: "flex", gap: "3px", flexWrap: "wrap", justifyContent: "flex-end" }}>

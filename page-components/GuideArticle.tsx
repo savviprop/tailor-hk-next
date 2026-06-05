@@ -1375,6 +1375,9 @@ The investment in quality at each stage is justified by longevity. A well-made f
   },
 };
 
+// Slug alias: the canonical URL was renamed from hk-finest-tailoring to expert-guide-to-best-tailors-in-hong-kong
+articles["expert-guide-to-best-tailors-in-hong-kong"] = articles["hk-finest-tailoring"];
+
 /** Converts inline markdown (**bold**, *italic*, [text](url), **[text](url)**) to React elements */
 function renderInline(text: string): React.ReactNode[] {
   const parts: React.ReactNode[] = [];

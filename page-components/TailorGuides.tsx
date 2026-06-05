@@ -23,7 +23,7 @@ const F = {
 
 const guides = [
   {
-    slug: "hk-finest-tailoring",
+    slug: "expert-guide-to-best-tailors-in-hong-kong",
     title: "Hong Kong's Finest Tailoring: The Definitive Guide",
     category: "Hong Kong Tailoring",
     excerpt: "Profiles of Hong Kong's established tailoring houses — Magnus & Novus, W.W. Chan, A Man Hing Cheong, The Armoury, Dorsia, and Ascot Chang — with pricing, addresses, and what to expect.",
@@ -328,7 +328,7 @@ export default function TailorGuides() {
         "@type": "ItemList",
         "name": "Tailoring Guides",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Hong Kong's Finest Tailoring: The Definitive Guide", "url": "https://tailors.hk/tailor-guides/hk-finest-tailoring"},
+          {"@type": "ListItem", "position": 1, "name": "Hong Kong's Finest Tailoring: The Definitive Guide", "url": "https://tailors.hk/tailor-guides/expert-guide-to-best-tailors-in-hong-kong"},
           {"@type": "ListItem", "position": 2, "name": "Bespoke, Made-to-Measure and Ready-to-Wear", "url": "https://tailors.hk/tailor-guides/bespoke-made-to-measure-and-ready-to-wear-suit-guide"},
           {"@type": "ListItem", "position": 3, "name": "The Essential Guide to Suit Fabrics", "url": "https://tailors.hk/tailor-guides/essential-guide-to-suit-fabrics"}
         ]

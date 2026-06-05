@@ -35,12 +35,12 @@ export default function Footer() {
                 TAILORS
               </span>
             </Link>
-            <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.08em", color: "#444", marginBottom: "16px", lineHeight: 1.9 }}>
+            <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.08em", color: "#888", marginBottom: "16px", lineHeight: 1.9 }}>
               TAILORS.HK<br />
               WORLD-LEADING SUPPLIER<br />
               BY APPOINTMENT
             </div>
-            <p style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.06em", lineHeight: 1.75, color: "#666", marginBottom: "18px", maxWidth: "220px", textTransform: "uppercase" }}>
+            <p style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.06em", lineHeight: 1.75, color: "#999", marginBottom: "18px", maxWidth: "220px", textTransform: "uppercase" }}>
               A world-leading supplier of handcrafted tailored suits. Atelier direct rates — trusted by professionals.
             </p>
             <a
@@ -59,11 +59,19 @@ export default function Footer() {
             >
               WHATSAPP US →
             </a>
+
+            {/* Mr Porter affiliate banner */}
+            <div style={{ marginTop: "24px" }}>
+              <div style={{ fontFamily: F.mono, fontSize: "7px", letterSpacing: "0.12em", color: "#555", marginBottom: "8px", textTransform: "uppercase" }}>Partner</div>
+              <a href="https://MrPorter.prf.hn/click/camref:1110luYp7/creativeref:1100l163239" rel="sponsored" target="_blank">
+                <img src="https://MrPorter-creative.prf.hn/source/camref:1110luYp7/creativeref:1100l163239" width="140" height="140" border="0" alt="Mr Porter" style={{ display: "block", opacity: 0.85 }} />
+              </a>
+            </div>
           </div>
 
           {/* Tailoring */}
           <div>
-            <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.12em", color: "#444", marginBottom: "14px", paddingBottom: "10px", borderBottom: "1px solid #1e1e1e" }}>
+            <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.12em", color: "#888", marginBottom: "14px", paddingBottom: "10px", borderBottom: "1px solid #2a2a2a" }}>
               § 01 · TAILORING
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -79,7 +87,7 @@ export default function Footer() {
                   <span style={{
                     fontFamily: F.display, fontSize: "11px", fontWeight: 500,
                     letterSpacing: "0.1em", textTransform: "uppercase",
-                    color: "#777", transition: "color 0.15s", cursor: "pointer",
+                    color: "#aaa", transition: "color 0.15s", cursor: "pointer",
                   }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLSpanElement).style.color = "#fff"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLSpanElement).style.color = "#777"; }}
@@ -93,7 +101,7 @@ export default function Footer() {
 
           {/* Guides */}
           <div>
-            <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.12em", color: "#444", marginBottom: "14px", paddingBottom: "10px", borderBottom: "1px solid #1e1e1e" }}>
+            <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.12em", color: "#888", marginBottom: "14px", paddingBottom: "10px", borderBottom: "1px solid #2a2a2a" }}>
               § 02 · GUIDES
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -108,7 +116,7 @@ export default function Footer() {
                   <span style={{
                     fontFamily: F.display, fontSize: "11px", fontWeight: 500,
                     letterSpacing: "0.1em", textTransform: "uppercase",
-                    color: "#777", transition: "color 0.15s", cursor: "pointer",
+                    color: "#aaa", transition: "color 0.15s", cursor: "pointer",
                   }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLSpanElement).style.color = "#fff"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLSpanElement).style.color = "#777"; }}
@@ -122,7 +130,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.12em", color: "#444", marginBottom: "14px", paddingBottom: "10px", borderBottom: "1px solid #1e1e1e" }}>
+            <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.12em", color: "#888", marginBottom: "14px", paddingBottom: "10px", borderBottom: "1px solid #2a2a2a" }}>
               § 03 · COMPANY
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
@@ -136,7 +144,7 @@ export default function Footer() {
                   <span style={{
                     fontFamily: F.display, fontSize: "11px", fontWeight: 500,
                     letterSpacing: "0.1em", textTransform: "uppercase",
-                    color: "#777", transition: "color 0.15s", cursor: "pointer",
+                    color: "#aaa", transition: "color 0.15s", cursor: "pointer",
                   }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLSpanElement).style.color = "#fff"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLSpanElement).style.color = "#777"; }}
@@ -146,13 +154,13 @@ export default function Footer() {
                 </Link>
               ))}
             </div>
-            <div style={{ fontFamily: F.mono, fontSize: "9px", letterSpacing: "0.06em", color: "#444", lineHeight: 1.9, textTransform: "uppercase" as const }}>
-              <div style={{ color: "#555", marginBottom: "2px" }}>EMAIL</div>
-              <a href="mailto:info@tailorshongkong.com" style={{ color: "#777", display: "block", marginBottom: "12px" }}>
+            <div style={{ fontFamily: F.mono, fontSize: "9px", letterSpacing: "0.06em", color: "#999", lineHeight: 1.9, textTransform: "uppercase" as const }}>
+              <div style={{ color: "#888", marginBottom: "2px" }}>EMAIL</div>
+              <a href="mailto:info@tailorshongkong.com" style={{ color: "#bbb", display: "block", marginBottom: "12px" }}>
                 INFO@TAILORSHONGKONG.COM
               </a>
-              <div style={{ color: "#555", marginBottom: "2px" }}>LOCATION</div>
-              <div style={{ color: "#555" }}>HONG KONG<br />BY APPOINTMENT</div>
+              <div style={{ color: "#888", marginBottom: "2px" }}>LOCATIONS</div>
+              <div style={{ color: "#999" }}>CENTRAL · SHEUNG WAN<br />CAUSEWAY BAY · BY APPOINTMENT</div>
             </div>
           </div>
         </div>
@@ -164,23 +172,24 @@ export default function Footer() {
           display: "flex", alignItems: "center", justifyContent: "space-between",
           padding: "14px 20px", flexWrap: "wrap", gap: "8px",
         }}>
-          <span style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.06em", color: "#3a3a3a" }}>
+          <span style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.06em", color: "#777" }}>
             © {year} TAILORS.HK · ALL RIGHTS RESERVED
           </span>
           <div style={{ display: "flex", gap: "18px" }}>
-            {["Privacy Policy", "Terms of Use"].map((label) => (
-              <span key={label} style={{
+            {[{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms of Service", href: "/terms" }].map(({ label, href }) => (
+              <a key={label} href={href} style={{
                 fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.06em",
-                color: "#3a3a3a", cursor: "pointer", transition: "color 0.15s",
+                color: "#777", cursor: "pointer", transition: "color 0.15s",
+                textDecoration: "none",
               }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLSpanElement).style.color = "#777"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLSpanElement).style.color = "#3a3a3a"; }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#fff"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#aaa"; }}
               >
                 {label.toUpperCase()}
-              </span>
+              </a>
             ))}
           </div>
-          <span style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.06em", color: "#2a2a2a" }}>
+          <span style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.06em", color: "#555" }}>
             TAILORS.HK · v3.0
           </span>
         </div>

@@ -18,12 +18,14 @@ const GUIDE_META: Record<string, { title: string; desc: string }> = {
   "suit-care-guide": { title: "Suit Care Guide — How to Care for a Bespoke Suit", desc: "How to care for your bespoke suit. Pressing, storage, cleaning, and maintenance tips." },
   "wardrobe-building-guide": { title: "Wardrobe Building Guide — The Essential Bespoke Wardrobe", desc: "How to build a complete bespoke wardrobe. The essential pieces and the order to commission them." },
   "hong-kong-tailor-guide": { title: "Hong Kong Tailor Guide — How to Choose the Right Tailor", desc: "How to choose the right bespoke tailor in Hong Kong. What to look for, questions to ask, and red flags." },
+  "expert-guide-to-best-tailors-in-hong-kong": { title: "Expert Guide to the Best Tailors in Hong Kong", desc: "Profiles of Hong Kong's finest tailoring houses — Magnus & Novus, W.W. Chan, Ascot Chang, Dorsia, and more. Pricing, addresses, and what to expect from each house." },
+  "hk-finest-tailoring": { title: "Hong Kong's Finest Tailoring: The Definitive Guide", desc: "Profiles of Hong Kong's established tailoring houses — Magnus & Novus, W.W. Chan, A Man Hing Cheong, The Armoury, Dorsia, and Ascot Chang — with pricing, addresses, and what to expect." },
   "loro-piana-fabric-guide": { title: "Loro Piana Fabric Guide — The World's Finest Wool and Cashmere", desc: "An in-depth guide to Loro Piana's suiting fabrics. Tasmanian wool, cashmere, and their finest collections." },
   "dormeuil-fabric-guide": { title: "Dormeuil Fabric Guide — French Suiting Excellence", desc: "A guide to Dormeuil's finest suiting fabrics. From Amadeus to Vanquish II — the French mill's heritage." },
 };
 
 export async function generateStaticParams() {
-  return [{"slug": "how-to-commission-bespoke-suit"}, {"slug": "fabric-guide-super-numbers"}, {"slug": "savile-row-vs-hong-kong"}, {"slug": "suit-construction-guide"}, {"slug": "bespoke-shirt-guide"}, {"slug": "trouser-guide"}, {"slug": "overcoat-guide"}, {"slug": "suit-fit-guide"}, {"slug": "fabric-weight-guide"}, {"slug": "lining-guide"}, {"slug": "button-guide"}, {"slug": "lapel-guide"}, {"slug": "pocket-guide"}, {"slug": "suit-care-guide"}, {"slug": "wardrobe-building-guide"}, {"slug": "hong-kong-tailor-guide"}, {"slug": "loro-piana-fabric-guide"}, {"slug": "dormeuil-fabric-guide"}];
+  return Object.keys(GUIDE_META).map((slug) => ({ slug }));
 }
 
 type Props = { params: Promise<{ slug: string }> };
@@ -39,7 +41,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: meta.title,
     description: meta.desc,
     alternates: { canonical },
-    openGraph: { title: meta.title, description: meta.desc, url: canonical, type: "article" },
+    openGraph: {
+      title: meta.title,
+      description: meta.desc,
+      url: canonical,
+      type: "article",
+      siteName: "Tailors.hk",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.desc,
+    },
   };
 }
 
@@ -47,17 +60,48 @@ export default async function Page({ params }: Props) {
   const { slug } = await params;
   const meta = GUIDE_META[slug] ?? { title: "", desc: "" };
   const canonical = `https://tailors.hk/tailor-guides/${slug}`;
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: meta.title,
-    description: meta.desc,
-    url: canonical,
-    publisher: { "@type": "Organization", name: "Tailors.hk", url: "https://tailors.hk" },
-  };
+  const publishDate = "2024-01-01T00:00:00+08:00";
+
+  const schemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `${canonical}/#article`,
+      "headline": meta.title,
+      "description": meta.desc,
+      "url": canonical,
+      "datePublished": publishDate,
+      "dateModified": publishDate,
+      "author": { "@type": "Organization", "name": "Tailors.hk", "url": "https://tailors.hk" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tailors.hk",
+        "url": "https://tailors.hk",
+        "logo": { "@type": "ImageObject", "url": "https://tailors.hk/favicon.ico" }
+      },
+      "isPartOf": { "@id": "https://tailors.hk/#website" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tailors.hk" },
+        { "@type": "ListItem", "position": 2, "name": "Tailor Guides", "item": "https://tailors.hk/tailor-guides" },
+        { "@type": "ListItem", "position": 3, "name": meta.title, "item": canonical },
+      ]
+    }
+  ];
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      {schemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <GuideArticleClient />
     </>
   );
