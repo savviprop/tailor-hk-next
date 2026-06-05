@@ -695,7 +695,7 @@ export default function OrtegaProfile() {
               <div style={{ fontFamily: F.display, fontSize: "26px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" as const, color: C.text }}>{f.name}</div>
             </div>
             {/* Row body: specs left, description right */}
-            <div className="ortega-fabric-inner" style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: "48px", alignItems: "start" }}>
+            <div className="ortega-fabric-inner" style={{ display: "grid", gap: "48px", alignItems: "start" }}>
               <div>
                 <div style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.12em", color: "rgba(0,0,0,0.45)", textTransform: "uppercase" as const, lineHeight: 2.0, marginBottom: "8px" }}>{f.spec}</div>
                 <div style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.10em", color: "rgba(0,0,0,0.3)", textTransform: "uppercase" as const, lineHeight: 2.0 }}>{f.fibre}</div>
@@ -875,6 +875,7 @@ export default function OrtegaProfile() {
       </div>
 
       <style>{`
+        .ortega-fabric-inner { grid-template-columns: 240px 1fr; }
         @media (max-width: 768px) {
           .ortega-hero-grid { grid-template-columns: 1fr !important; height: auto !important; }
           .ortega-hero-grid > div:first-child { height: 200px !important; }
