@@ -590,7 +590,6 @@ export default function OrtegaProfile() {
   ];
   const contactRows = [
     { label: t.contact1Label, value: t.contact1Val },
-    { label: t.contact2Label, value: t.contact2Val },
     { label: t.contact3Label, value: t.contact3Val },
   ];
 
